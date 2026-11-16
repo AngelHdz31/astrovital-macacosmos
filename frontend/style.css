@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --paper: #F4F6F9;
+    --surface: #FFFFFF;
+    --ink: #0E1B2C;
+    --muted: #5B6878;
+    --line: #E2E8F0;
+    --blue: #0B3D91;
+    --blue-light: #EBF2FF;
+    --ok: #16794B;
+    --warn: #B45309;
+    --crit: #DC2626;
+}
+
+html, body, .stApp, [class*="st-"], button, input, textarea, select {
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.stApp { background-color: var(--paper); color: var(--ink); }
+#MainMenu, footer { visibility: hidden; }
+[data-testid="stHeader"] { background: transparent; }
+.block-container { padding-top: 1.5rem; padding-bottom: 3rem; max-width: 1340px; }
+
+/* ---------- Contenedores Tipo Tarjeta ---------- */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: var(--surface);
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+    padding: 1.25rem 1.35rem !important;
+    box-shadow: 0 1px 2px rgba(14, 27, 44, 0.04);
+}
+
+/* ---------- Encabezado Principal ---------- */
+.hero {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; flex-wrap: wrap;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.15rem 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 2px rgba(14, 27, 44, 0.03);
+}
+.hero h1 { margin: 0; font-size: 1.65rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.hero p { margin: .25rem 0 0; color: var(--muted); font-size: .92rem; }
+.hero-tag {
+    font-size: .78rem; font-weight: 600; color: var(--blue);
+    background: var(--blue-light); border: 1px solid #C3D8FF;
+    border-radius: 6px; padding: .35rem .75rem; white-space: nowrap;
+}
+
+/* ---------- Barra Lateral (Mission Control) ---------- */
+[data-testid="stSidebar"] { background: #0B1524; border-right: 1px solid #1E2D44; }
+[data-testid="stSidebar"] label p, [data-testid="stSidebar"] .side-title { color: #94A3B8 !important; }
+
+/* === CORRECCIÓN DEL MENÚ DE NAVEGACIÓN (st.navigation) === */
+[data-testid="stSidebarNav"] * {
+    color: #FFFFFF !important;
+}
+[data-testid="stSidebarNav"] [aria-current="page"] {
+    background-color: #1E2F47 !important;
+    border-radius: 6px;
+}
+
+/* === CORRECCIÓN DEL SELECTOR DE ASTRONAUTAS === */
+[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background-color: #FFFFFF !important; 
+    border: 1px solid #E2E8F0 !important; 
+    border-radius: 6px !important;
+}
+[data-testid="stSidebar"] [data-baseweb="select"] * {
+    color: #0E1B2C !important;
+}
+div[data-baseweb="popover"] ul {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+}
+div[data-baseweb="popover"] li {
+    color: #0E1B2C !important;
+    background-color: transparent !important;
+    padding: 10px 15px !important;
+    font-weight: 500;
+}
+div[data-baseweb="popover"] li:hover, div[data-baseweb="popover"] li[aria-selected="true"] {
+    background-color: #F4F6F9 !important;
+}
+
+.side-title {
+    font-size: .75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .06em; margin: .75rem 0 .4rem;
+}
+.crew {
+    padding: .75rem .9rem; border-radius: 8px; background: #132238;
+    border: 1px solid #23354F; margin: .4rem 0 1rem;
+}
+.crew-name { font-weight: 600; font-size: .98rem; color: #FFFFFF !important; }
+.crew-role { font-size: .8rem; color: #94A3B8 !important; margin-top: .15rem; }
+.tele {
+    border: 1px solid #23354F; border-radius: 8px; overflow: hidden;
+    background: #132238; margin-bottom: 1rem;
+}
+.tele-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: .5rem .85rem; border-bottom: 1px solid #1E2F47;
+}
+.tele-row:last-child { border-bottom: none; }
+.tele-k { font-size: .8rem; color: #94A3B8 !important; }
+.tele-v { font-size: .98rem; font-weight: 600; color: #FFFFFF !important; font-variant-numeric: tabular-nums; }
+.tele-u { font-size: .72rem; font-weight: 400; color: #94A3B8 !important; margin-left: .2rem; }
+
+/* ---------- Botón Primario ---------- */
+button[kind="primary"], button[data-testid="stBaseButton-primary"] {
+    background: #2563EB; border: none; border-radius: 7px;
+    font-weight: 600; padding: .55rem 1rem; transition: all .15s ease;
+}
+button[kind="primary"]:hover, button[data-testid="stBaseButton-primary"]:hover { background: #1D4ED8; }
+button[kind="primary"] *, button[data-testid="stBaseButton-primary"] * { color: #FFFFFF !important; }
+
+/* ---------- Tipografía de Tarjetas ---------- */
+.panel-title { font-size: 1.02rem; font-weight: 600; margin: 0 0 .2rem; color: var(--ink); }
+.panel-note { color: var(--muted); font-size: .84rem; margin: 0 0 .85rem; }
+
+/* ---------- Etiquetas / Badges ---------- */
+.badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: .2rem .6rem; border-radius: 999px;
+    font-size: .76rem; font-weight: 600; letter-spacing: .01em;
+}
+.badge-ok { background: #ECFDF5; color: var(--ok); border: 1px solid #A7F3D0; }
+.badge-warn { background: #FFFBEB; color: var(--warn); border: 1px solid #FDE68A; }
+.badge-crit { background: #FEF2F2; color: var(--crit); border: 1px solid #FECACA; }
+.badge-info { background: var(--blue-light); color: var(--blue); border: 1px solid #BFDBFE; }
+
+/* ---------- Tarjetas de Zona Anatómica ---------- */
+.zone-list { display: flex; flex-direction: column; gap: .45rem; margin-top: .75rem; }
+.zone-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: .5rem .75rem; border-radius: 7px;
+    background: #F8FAFC; border: 1px solid var(--line); font-size: .84rem;
+}
+.zone-item.active {
+    background: var(--blue-light); border-color: #93C5FD; font-weight: 600;
+}
+
+/* ---------- Indicadores de Rango Clínico ---------- */
+.field-ctx {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .78rem; padding: .3rem .65rem; border-radius: 6px; margin: -.25rem 0 .75rem;
+}
+.ctx-ok { background: #F8FAFC; color: #475569; border-left: 3px solid var(--ok); }
+.ctx-warn { background: #FFFBEB; color: #92400E; border-left: 3px solid var(--warn); font-weight: 600; }
+.ctx-crit { background: #FEF2F2; color: #991B1B; border-left: 3px solid var(--crit); font-weight: 600; }
+
+/* ---------- Banner de Diagnóstico ---------- */
+.verdict {
+    background: var(--surface); border: 1px solid var(--line);
+    border-left: 5px solid var(--c); border-radius: 10px;
+    padding: 1rem 1.25rem; margin: 0 0 1.2rem;
+    box-shadow: 0 1px 3px rgba(14, 27, 44, 0.04);
+}
+.verdict-ok { --c: var(--ok); }
+.verdict-warn { --c: var(--warn); }
+.verdict-crit { --c: var(--crit); }
+.verdict-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.verdict-title { font-size: 1.12rem; font-weight: 700; color: var(--c); }
+.verdict p { margin: .35rem 0 0; color: var(--ink); font-size: .9rem; }
+.scale { display: flex; gap: 4px; }
+.scale i { display: block; width: 28px; height: 7px; border-radius: 2px; background: var(--line); }
+.scale i.on { background: var(--c); }
+
+/* ---------- Leyenda Global de Gráficos ---------- */
+.chart-legend {
+    display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 8px; padding: .55rem 1rem; margin-bottom: 1rem; font-size: .82rem; color: var(--muted);
+}
+.leg-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+.leg-line { display: inline-block; width: 18px; height: 0; border-top: 2px dashed; margin-right: 6px; vertical-align: middle; }
+
+/* ---------- Alertas y Reporte ---------- */
+.alert-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-left: 4px solid var(--c);
+    border-radius: 8px; padding: .85rem 1.15rem; margin-bottom: .65rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.alert-crit { --c: var(--crit); }
+.alert-warn { --c: var(--warn); }
+
+.print-box {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 10px;
+    padding: 2rem; margin-top: .5rem;
+}
+@media print {
+    [data-testid="stSidebar"], [data-testid="stHeader"], .no-print, button { display: none !important; }
+    .block-container { max-width: 100% !important; padding: 0 !important; }
+    .stApp { background: #FFFFFF !important; }
+}
